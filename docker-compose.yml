@@ -11,7 +11,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - db:/data/postgresql
+      - db:/data/postgresql/data
     profiles: ["orion"]
 
   ### MinIO for flow storage
@@ -44,7 +44,7 @@ services:
     environment:
       - PREFECT_ORION_API_HOST=0.0.0.0
       - PREFECT_ORION_DATABASE_CONNECTION_URL=postgresql+asyncpg://postgres:postgres@database:5432/prefect_handson
-      - PREFECT_API_URL=http://localhost:4200/api
+      - PREFECT_API_URL=http://localhost:4300/api
     ports:
       - 4300:4200
     depends_on:
