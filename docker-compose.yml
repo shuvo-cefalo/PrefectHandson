@@ -68,8 +68,6 @@ services:
       - ".:/app"
     environment:
       - PREFECT_API_URL=http://orion:4200/api
-    #       Use PREFECT_API_KEY if connecting the agent to Prefect Cloud
-    #- PREFECT_API_KEY=
     ports:
       - 8786:8787
     profiles: ["agent"]
@@ -77,9 +75,7 @@ services:
       context: .
       args:
         ENVIRONMENT: dev
-      #when building
       shm_size: 1gb
-      #when running
     shm_size: 1gb
 
   ### Prefect CLI
@@ -95,9 +91,7 @@ services:
       context: .
       args:
         ENVIRONMENT: dev
-      #when building
       shm_size: 1gb
-      #when running
     shm_size: 1gb
 
 volumes:
